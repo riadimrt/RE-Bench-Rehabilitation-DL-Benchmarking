@@ -1,0 +1,2 @@
+Model,Paradigm,Generation,Accuracy_Mean%,Accuracy_Std%,F1_Score%,Precision%,Recall%,S5CV_Time_s,CPU_Native,GPU_Required
+ConvNeXt-Tiny,CNN,2021-2022,97.5635,0.6778,96.5101,97.6463,95.9120,26105.0,No,Yes

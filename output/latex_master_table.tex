@@ -1,0 +1,24 @@
+\begin{table*}[htbp]
+\centering
+\caption{Comprehensive comparison of all evaluated architectures under the RE-Bench protocol (S5-CV, seed=42). $\dagger$ = novel architecture (2021--2022). $\star$ = best in category. EES = Energy Efficiency Score (proposed metric).}
+\label{tab:master_comparison}
+\begin{tabular}{llcccccccc}
+\hline
+\textbf{Model} & \textbf{Paradigm} & \textbf{Year} & \textbf{Acc (\%)} & \textbf{$\pm$Std} & \textbf{F1 (\%)} & \textbf{FLOPs (G)} & \textbf{Size (MB)} & \textbf{EES} & \textbf{HW} \\
+\hline
+\textbf{ConvNeXt-Tiny$\dagger$} & CNN & 2022 & \textbf{97.56$\star$} & 0.68 & 96.51 & 4.455 & 106.2 & 4.0 & GPU \\
+\textbf{MobileNetV2} & CNN & 2018 & \textbf{97.22} & 1.12 & 96.00 & 0.327 & 9.9 & 31.9 & GPU \\
+\hline
+\textbf{ViT-Tiny} & Transformer & 2021 & \textbf{97.22} & 1.18 & 96.73 & 1.075 & 21.1 & 15.7 & GPU \\
+\hline
+MobileNetV3-Large$\dagger$ & CNN & 2019 & 96.98 & 0.67 & 96.22 & 0.226 & 21.1 & 27.5 & GPU \\
+EfficientNet-B0 & CNN & 2019 & 96.87 & 1.49 & 95.54 & 0.414 & 16.7 & 22.5 & GPU \\
+\hline
+Attn-LSTM & Sequential & 2015 & 95.13 & 1.67 & 92.87 & 0.001 & 3.6 & 903.7 & CPU \\
+BiLSTM & Sequential & 2013 & 95.13 & 2.10 & 93.15 & 0.003 & 9.3 & 382.6 & CPU \\
+LSTM & Sequential & 2014 & 94.90 & 1.57 & 92.05 & 0.001 & 3.6 & 910.0 & CPU \\
+\hline
+Skeleton-GCN & Graph & 2016 & 94.78 & 1.80 & 92.71 & 0.001 & 0.1 & 4590.8 & CPU \\
+\hline
+\end{tabular}
+\end{table*}

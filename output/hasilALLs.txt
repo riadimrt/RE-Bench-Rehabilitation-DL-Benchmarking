@@ -1,0 +1,715 @@
+saat dijalankan ini adalah hasil-hasilnya:
+
+>python 06_convnext_new_cnn.py --data_dir ./data --output_dir ./output
+
+  Device: cpu
+
+==============================================================================
+
+  CNN TERBARU — STRATIFIED 5-FOLD CV
+
+  ConvNeXt-Tiny | EfficientNetV2-S | MobileNetV3-Large
+
+  Novelty: CNN generasi 2021-2022 vs Shalaby (2019-era CNN)
+
+==============================================================================
+
+  Loaded 862 samples from ./data
+
+  Total samples: 862
+
+  Device: cpu
+
+──────────────────────────────────────────────────────────────────────────────
+
+  MODEL: ConvNeXt-Tiny
+
+──────────────────────────────────────────────────────────────────────────────
+
+  Fold 1/5 | Train:689 Val:173 Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+
+model.safetensors: 100%|████████████████████████████████████████████████████████████| 114M/114M [00:34<00:00, 3.34MB/s]
+
+  ✓ ConvNeXt-Tiny loaded (pretrained)
+
+→ Acc:97.11% F1:96.54%
+
+  Fold 2/5 | Train:689 Val:173   ✓ ConvNeXt-Tiny loaded (pretrained)
+
+→ Acc:98.27% F1:97.57%
+
+  Fold 3/5 | Train:690 Val:172   ✓ ConvNeXt-Tiny loaded (pretrained)
+
+→ Acc:98.26% F1:94.96%
+
+  Fold 4/5 | Train:690 Val:172   ✓ ConvNeXt-Tiny loaded (pretrained)
+
+→ Acc:97.67% F1:97.90%
+
+  Fold 5/5 | Train:690 Val:172   ✓ ConvNeXt-Tiny loaded (pretrained)
+
+→ Acc:96.51% F1:95.58%
+
+  ─── ConvNeXt-Tiny RESULTS (S5-CV) ───
+
+  Accuracy : 97.56% ± 0.68%
+
+  F1 Macro : 96.51%
+
+  Precision: 97.65%  Recall: 95.91%
+
+  Time     : 26106.7s
+
+  Per-Class Report:
+
+              precision    recall  f1-score   support
+
+       NoObj       0.98      0.98      0.98        54
+
+        Unkn       0.96      0.81      0.88        32
+
+         Ext       0.97      0.98      0.97       374
+
+        Flex       0.99      0.97      0.98       138
+
+         Abd       0.99      0.98      0.99       158
+
+        HExt       0.97      0.98      0.98        62
+
+         Add       0.98      1.00      0.99        44
+
+    accuracy                           0.98       862
+
+   macro avg       0.98      0.96      0.97       862
+
+weighted avg       0.98      0.98      0.98       862
+
+  Confusion Matrix:
+
+                         NoObj    Unkn     Ext    Flex     Abd    HExt     Add
+
+  NoObj                     53       1       0       0       0       0       0  ← Recall=98.1%
+
+  Unkn                       1      26       5       0       0       0       0  ← Recall=81.2%
+
+  Ext                        0       0     368       2       1       2       1  ← Recall=98.4%
+
+  Flex                       0       0       4     134       0       0       0  ← Recall=97.1%
+
+  Abd                        0       0       3       0     155       0       0  ← Recall=98.1%
+
+  HExt                       0       0       1       0       0      61       0  ← Recall=98.4%
+
+  Add                        0       0       0       0       0       0      44  ← Recall=100.0%
+
+──────────────────────────────────────────────────────────────────────────────
+
+  MODEL: EfficientNetV2-S
+
+──────────────────────────────────────────────────────────────────────────────
+
+  Fold 1/5 | Train:689 Val:173 Traceback (most recent call last):
+
+  File "C:\Users\PST\PythonMe2025\BuFawziah\modern_modelsV2\06_convnext_new_cnn.py", line 450, in <module>
+
+    run_new_cnn_evaluation(
+
+  File "C:\Users\PST\PythonMe2025\BuFawziah\modern_modelsV2\06_convnext_new_cnn.py", line 334, in run_new_cnn_evaluation
+
+    preds, true = train_fold(
+
+                  ^^^^^^^^^^^
+
+  File "C:\Users\PST\PythonMe2025\BuFawziah\modern_modelsV2\06_convnext_new_cnn.py", line 244, in train_fold
+
+    model     = builder(NUM_CLASSES, pretrained=True).to(DEVICE)
+
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+  File "C:\Users\PST\PythonMe2025\BuFawziah\modern_modelsV2\06_convnext_new_cnn.py", line 163, in build_efficientnetv2_s
+
+    model = timm.create_model(
+
+            ^^^^^^^^^^^^^^^^^^
+
+  File "C:\Users\PST\AppData\Local\Programs\Python\Python311\Lib\site-packages\timm\models\_factory.py", line 138, in create_model
+
+    model = create_fn(
+
+            ^^^^^^^^^^
+
+  File "C:\Users\PST\AppData\Local\Programs\Python\Python311\Lib\site-packages\timm\models\efficientnet.py", line 2406, in efficientnetv2_s
+
+    model = _gen_efficientnetv2_s('efficientnetv2_s', pretrained=pretrained, **kwargs)
+
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+  File "C:\Users\PST\AppData\Local\Programs\Python\Python311\Lib\site-packages\timm\models\efficientnet.py", line 939, in _gen_efficientnetv2_s
+
+    model = _create_effnet(variant, pretrained, **model_kwargs)
+
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+  File "C:\Users\PST\AppData\Local\Programs\Python\Python311\Lib\site-packages\timm\models\efficientnet.py", line 465, in _create_effnet
+
+    model = build_model_with_cfg(
+
+            ^^^^^^^^^^^^^^^^^^^^^
+
+  File "C:\Users\PST\AppData\Local\Programs\Python\Python311\Lib\site-packages\timm\models\_builder.py", line 457, in build_model_with_cfg
+
+    load_pretrained(
+
+  File "C:\Users\PST\AppData\Local\Programs\Python\Python311\Lib\site-packages\timm\models\_builder.py", line 236, in load_pretrained
+
+    raise RuntimeError(f"No pretrained weights exist for {model_name}. Use `pretrained=False` for random init.")
+
+RuntimeError: No pretrained weights exist for efficientnetv2_s. Use `pretrained=False` for random init.
+
+
+
+python 06_convnext_new_cnn.py --data_dir ./data --models ConvNeXt-Tiny
+
+  Device: cpu
+
+==============================================================================
+
+  CNN TERBARU — STRATIFIED 5-FOLD CV
+
+  ConvNeXt-Tiny | EfficientNetV2-S | MobileNetV3-Large
+
+  Novelty: CNN generasi 2021-2022 vs Shalaby (2019-era CNN)
+
+==============================================================================
+
+  Loaded 862 samples from ./data
+
+  Total samples: 862
+
+  Device: cpu
+
+──────────────────────────────────────────────────────────────────────────────
+
+  MODEL: ConvNeXt-Tiny
+
+──────────────────────────────────────────────────────────────────────────────
+
+model.safetensors: 100%|████████████████████████████████████████████████████████████| 114M/114M [00:38<00:00, 2.97MB/s]
+
+  ✓ ConvNeXt-Tiny loaded (pretrained)
+
+→ Acc:97.11% F1:96.54%
+
+  Fold 2/5 | Train:689 Val:173 Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+
+  ✓ ConvNeXt-Tiny loaded (pretrained)
+
+→ Acc:98.27% F1:97.57%
+
+  Fold 3/5 | Train:690 Val:172   ✓ ConvNeXt-Tiny loaded (pretrained)
+
+→ Acc:98.26% F1:94.96%
+
+  Fold 4/5 | Train:690 Val:172   ✓ ConvNeXt-Tiny loaded (pretrained)
+
+→ Acc:97.67% F1:97.90%
+
+  Fold 5/5 | Train:690 Val:172   ✓ ConvNeXt-Tiny loaded (pretrained)
+
+→ Acc:96.51% F1:95.58%
+
+  ─── ConvNeXt-Tiny RESULTS (S5-CV) ───
+
+  Accuracy : 97.56% ± 0.68%
+
+  F1 Macro : 96.51%
+
+  Precision: 97.65%  Recall: 95.91%
+
+  Time     : 26105.0s
+
+  Per-Class Report:
+
+              precision    recall  f1-score   support
+
+       NoObj       0.98      0.98      0.98        54
+
+        Unkn       0.96      0.81      0.88        32
+
+         Ext       0.97      0.98      0.97       374
+
+        Flex       0.99      0.97      0.98       138
+
+         Abd       0.99      0.98      0.99       158
+
+        HExt       0.97      0.98      0.98        62
+
+         Add       0.98      1.00      0.99        44
+
+    accuracy                           0.98       862
+
+   macro avg       0.98      0.96      0.97       862
+
+weighted avg       0.98      0.98      0.98       862
+
+  Confusion Matrix:
+
+                         NoObj    Unkn     Ext    Flex     Abd    HExt     Add
+
+  NoObj                     53       1       0       0       0       0       0  ← Recall=98.1%
+
+  Unkn                       1      26       5       0       0       0       0  ← Recall=81.2%
+
+  Ext                        0       0     368       2       1       2       1  ← Recall=98.4%
+
+  Flex                       0       0       4     134       0       0       0  ← Recall=97.1%
+
+  Abd                        0       0       3       0     155       0       0  ← Recall=98.1%
+
+  HExt                       0       0       1       0       0      61       0  ← Recall=98.4%
+
+  Add                        0       0       0       0       0       0      44  ← Recall=100.0%
+
+==============================================================================
+
+  SUMMARY — NEW CNN ARCHITECTURES vs EXISTING MODELS
+
+==============================================================================
+
+  Model                         Acc(%)     ±Std    F1(%)    Time(s)      Gen
+
+  ───────────────────────── ────────── ──────── ──────── ────────── ────────
+
+  MobileNetV2 (existing)         97.22     1.12    96.00     2187.7  2018-19
+
+  EfficientNet-B0 (existing)      96.87     1.49    95.54     3057.7  2018-19
+
+  ViT-Tiny (existing)            97.22     1.18    96.73     6335.7  2018-19
+
+  ConvNeXt-Tiny                  97.56     0.68    96.51    26105.0  2021-22
+
+  ✓ Results saved → ./output\hasil_new_cnn_cv.csv
+
+
+
+
+
+python 06_convnext_new_cnn.py --data_dir ./data --models MobileNetV3-Large
+
+  Device: cpu
+
+==============================================================================
+
+  CNN TERBARU — STRATIFIED 5-FOLD CV
+
+  ConvNeXt-Tiny | EfficientNetV2-S | MobileNetV3-Large
+
+  Novelty: CNN generasi 2021-2022 vs Shalaby (2019-era CNN)
+
+==============================================================================
+
+  Loaded 862 samples from ./data
+
+  Total samples: 862
+
+  Device: cpu
+
+──────────────────────────────────────────────────────────────────────────────
+
+  MODEL: MobileNetV3-Large
+
+──────────────────────────────────────────────────────────────────────────────
+
+  Fold 1/5 | Train:689 Val:173 Downloading: "https://download.pytorch.org/models/mobilenet_v3_large-8738ca79.pth" to C:\Users\PST/.cache\torch\hub\checkpoints\mobilenet_v3_large-8738ca79.pth
+
+100%|█████████████████████████████████████████████████████████████████████████████| 21.1M/21.1M [00:06<00:00, 3.22MB/s]
+
+  ✓ MobileNetV3-Large loaded
+
+→ Acc:95.95% F1:93.38%
+
+  Fold 2/5 | Train:689 Val:173   ✓ MobileNetV3-Large loaded
+
+→ Acc:97.11% F1:97.76%
+
+  Fold 3/5 | Train:690 Val:172   ✓ MobileNetV3-Large loaded
+
+→ Acc:97.67% F1:94.64%
+
+  Fold 4/5 | Train:690 Val:172   ✓ MobileNetV3-Large loaded
+
+→ Acc:97.67% F1:97.90%
+
+  Fold 5/5 | Train:690 Val:172   ✓ MobileNetV3-Large loaded
+
+→ Acc:96.51% F1:97.44%
+
+  ─── MobileNetV3-Large RESULTS (S5-CV) ───
+
+  Accuracy : 96.98% ± 0.67%
+
+  F1 Macro : 96.22%
+
+  Precision: 97.75%  Recall: 95.49%
+
+  Time     : 18597.6s
+
+  Per-Class Report:
+
+              precision    recall  f1-score   support
+
+       NoObj       0.98      1.00      0.99        54
+
+        Unkn       1.00      0.81      0.90        32
+
+         Ext       0.96      0.98      0.97       374
+
+        Flex       0.99      0.96      0.97       138
+
+         Abd       0.98      0.97      0.97       158
+
+        HExt       0.98      0.98      0.98        62
+
+         Add       0.96      0.98      0.97        44
+
+    accuracy                           0.97       862
+
+   macro avg       0.98      0.95      0.96       862
+
+weighted avg       0.97      0.97      0.97       862
+
+  Confusion Matrix:
+
+                         NoObj    Unkn     Ext    Flex     Abd    HExt     Add
+
+  NoObj                     54       0       0       0       0       0       0  ← Recall=100.0%
+
+  Unkn                       1      26       5       0       0       0       0  ← Recall=81.2%
+
+  Ext                        0       0     366       2       3       1       2  ← Recall=97.9%
+
+  Flex                       0       0       5     133       0       0       0  ← Recall=96.4%
+
+  Abd                        0       0       5       0     153       0       0  ← Recall=96.8%
+
+  HExt                       0       0       1       0       0      61       0  ← Recall=98.4%
+
+  Add                        0       0       1       0       0       0      43  ← Recall=97.7%
+
+==============================================================================
+
+  SUMMARY — NEW CNN ARCHITECTURES vs EXISTING MODELS
+
+==============================================================================
+
+  Model                         Acc(%)     ±Std    F1(%)    Time(s)      Gen
+
+  ───────────────────────── ────────── ──────── ──────── ────────── ────────
+
+  MobileNetV2 (existing)         97.22     1.12    96.00     2187.7  2018-19
+
+  EfficientNet-B0 (existing)      96.87     1.49    95.54     3057.7  2018-19
+
+  ViT-Tiny (existing)            97.22     1.18    96.73     6335.7  2018-19
+
+  MobileNetV3-Large              96.98     0.67    96.22    18597.6  2021-22
+
+  ✓ Results saved → ./output\hasil_new_cnn_cv.csv
+
+
+
+Model	Paradigm	Generation	Accuracy_Mean%	Accuracy_Std%	F1_Score%	Precision%	Recall%	S5CV_Time_s	CPU_Native	GPU_Required
+
+ConvNeXt-Tiny	CNN	2021-2022	97.5635	0.6778	96.5101	97.6463	95.912	26105	No	Yes
+
+
+
+
+
+Model	Paradigm	Params_M	Params_Trainable_M	Model_Size_MB	FLOPs_G	Latency_Mean_ms	Latency_Std_ms	FPS_CPU	S5CV_Time_s	Accuracy_%	Std_%	F1_%	CPU_Native	GPU_Required	Relative_Speed	EES	CDS
+
+MobileNetV2	CNN	2.55	2.55	9.87	0.327	8.75	0.97	114.3	2187.7	97.22	1.12	96	FALSE	TRUE	1	31.943	98.33
+
+EfficientNet-B0	CNN	4.34	4.34	16.71	0.414	11.57	0.74	86.4	3057.7	96.87	1.49	95.54	FALSE	TRUE	0.7	22.475	98.12
+
+ResNet18	CNN	11.31	11.31	43.18	1.824	13.4	1.29	74.7	0	0	0	0	FALSE	TRUE	0	0	40
+
+ViT-Tiny	Transformer	5.53	5.53	21.08	1.075	10.54	1.28	94.9	6335.7	97.22	1.18	96.73	FALSE	TRUE	0.3	15.673	98.33
+
+ConvNeXt-Tiny	CNN	27.83	27.83	106.15	4.455	31.46	3.56	31.8	0	0	0	0	FALSE	TRUE	0	0	32.07
+
+EfficientNetV2	CNN	20.19	20.19	77.59	2.849	39.59	4.33	25.3	0	0	0	0	FALSE	TRUE	0	0	34.67
+
+LSTM	Sequential	0.943	0.943	3.6	0.0009	0.35	0.02	2856.2	29.6	94.9	1.57	92.05	TRUE	FALSE	73.9	878.723	98.94
+
+BiLSTM	Sequential	2.443	2.443	9.32	0.0025	0.66	0.07	1520.1	62.9	95.13	2.1	93.15	TRUE	FALSE	34.8	385.525	99.08
+
+Attn-LSTM	Sequential	0.943	0.943	3.6	0.0009	0.36	0.03	2760	33.8	95.13	1.67	92.87	TRUE	FALSE	64.7	870.769	99.08
+
+Skeleton-GCN	Graph	0.03	0.03	0.11	0.0008	0.1	0.02	10469.5	90.7	94.78	1.8	92.71	TRUE	FALSE	24.1	4269.594	98.87
+
+
+
+
+
+Model,Paradigm,Params_M,Size_MB,FLOPs_G,Latency_ms,FPS_CPU,Accuracy_%,EES,CDS,CPU_Native
+
+MobileNetV2,CNN,2.55,9.87,0.327,8.75,114.3,97.22,31.943,98.33,False
+
+EfficientNet-B0,CNN,4.34,16.71,0.414,11.57,86.4,96.87,22.475,98.12,False
+
+ResNet18,CNN,11.31,43.18,1.824,13.4,74.7,0.0,0.0,40.0,False
+
+ViT-Tiny,Transformer,5.53,21.08,1.075,10.54,94.9,97.22,15.673,98.33,False
+
+ConvNeXt-Tiny,CNN,27.83,106.15,4.455,31.46,31.8,0.0,0.0,32.07,False
+
+EfficientNetV2,CNN,20.19,77.59,2.849,39.59,25.3,0.0,0.0,34.67,False
+
+LSTM,Sequential,0.943,3.6,0.0009,0.35,2856.2,94.9,878.723,98.94,True
+
+BiLSTM,Sequential,2.443,9.32,0.0025,0.66,1520.1,95.13,385.525,99.08,True
+
+Attn-LSTM,Sequential,0.943,3.6,0.0009,0.36,2760.0,95.13,870.769,99.08,True
+
+Skeleton-GCN,Graph,0.03,0.11,0.0008,0.1,10469.5,94.78,4269.594,98.87,True
+
+
+
+
+
+ENERGY-AWARE EFFICIENCY ANALYSIS — NOVELTY SUMMARY
+
+============================================================
+
+Inspired by: Energy-Aware GPU Skinning (Shalaby et al.)
+
+Adapted to: Clinical AI Inference for Rehabilitation
+
+New Metrics Introduced:
+
+  1. FLOPs (GFLOPs) per inference
+
+  2. Model Size (MB)
+
+  3. CPU Inference Latency (ms)
+
+  4. Energy Efficiency Score (EES)
+
+  5. Clinical Deployment Score (CDS)
+
+Results:
+
+          Model    Paradigm  Params_M  Params_Trainable_M  Model_Size_MB  FLOPs_G  Latency_Mean_ms  Latency_Std_ms  FPS_CPU  S5CV_Time_s  Accuracy_%  Std_%  F1_%  CPU_Native  GPU_Required  Relative_Speed      EES   CDS
+
+    MobileNetV2         CNN     2.550               2.550           9.87   0.3270             8.75            0.97    114.3       2187.7       97.22   1.12 96.00       False          True             1.0   31.943 98.33
+
+EfficientNet-B0         CNN     4.340               4.340          16.71   0.4140            11.57            0.74     86.4       3057.7       96.87   1.49 95.54       False          True             0.7   22.475 98.12
+
+       ResNet18         CNN    11.310              11.310          43.18   1.8240            13.40            1.29     74.7          0.0        0.00   0.00  0.00       False          True             0.0    0.000 40.00
+
+       ViT-Tiny Transformer     5.530               5.530          21.08   1.0750            10.54            1.28     94.9       6335.7       97.22   1.18 96.73       False          True             0.3   15.673 98.33
+
+  ConvNeXt-Tiny         CNN    27.830              27.830         106.15   4.4550            31.46            3.56     31.8          0.0        0.00   0.00  0.00       False          True             0.0    0.000 32.07
+
+ EfficientNetV2         CNN    20.190              20.190          77.59   2.8490            39.59            4.33     25.3          0.0        0.00   0.00  0.00       False          True             0.0    0.000 34.67
+
+           LSTM  Sequential     0.943               0.943           3.60   0.0009             0.35            0.02   2856.2         29.6       94.90   1.57 92.05        True         False            73.9  878.723 98.94
+
+         BiLSTM  Sequential     2.443               2.443           9.32   0.0025             0.66            0.07   1520.1         62.9       95.13   2.10 93.15        True         False            34.8  385.525 99.08
+
+      Attn-LSTM  Sequential     0.943               0.943           3.60   0.0009             0.36            0.03   2760.0         33.8       95.13   1.67 92.87        True         False            64.7  870.769 99.08
+
+   Skeleton-GCN       Graph     0.030               0.030           0.11   0.0008             0.10            0.02  10469.5         90.7       94.78   1.80 92.71        True         False            24.1 4269.594 98.87
+
+
+
+
+
+
+
+Bagaimana tanggapanmu?
+
+dan apakah dengan data-data luaran ini sudah bisa mencapai apa target saya dalam  mencapai NOVELTY YANG DIHASILKAN dari harapan Shalaby tersebut?
+
+
+python 07_master_final_table.py --output_dir ./output
+
+====================================================================================================
+  MODULE 7: MASTER FINAL COMPARISON
+  RE-Bench Extended — IEEE Access Submission
+====================================================================================================
+
+  ✓ Master table saved → ./output\master_final_table.csv
+
+====================================================================================================
+  TABLE 2: COMPREHENSIVE S5-CV RESULTS — ALL ARCHITECTURES
+  (RE-Bench Protocol: FC-1~FC-7, S5-CV, seed=42)
+====================================================================================================
+
+  Model                  Gen     Paradigm      Cat     Acc%   ±Std     F1%    Prec     Rec   Time(s)
+  ──────────────────── ───── ──────────── ──────── ──────── ────── ─────── ─────── ─────── ─────────
+  ConvNeXt-Tiny         2022          CNN    Novel    97.56   0.68   96.51   97.65   95.91   26105.0 ★ †
+  MobileNetV2           2018          CNN Existing    97.22   1.12   96.00   97.74   95.12    2187.7
+  ViT-Tiny              2021  Transformer Existing    97.22   1.18   96.73   97.43   96.44    6335.7
+  MobileNetV3-Large     2019          CNN    Novel    96.98   0.67   96.22   97.75   95.49   18597.6 †
+  EfficientNet-B0       2019          CNN Existing    96.87   1.49   95.54   96.99   94.99    3057.7
+  Attn-LSTM             2015   Sequential Existing    95.13   1.67   92.87   93.57   93.33      33.8
+  BiLSTM                2013   Sequential Existing    95.13   2.10   93.15   94.45   93.46      62.9
+  LSTM                  2014   Sequential Existing    94.90   1.57   92.05   93.64   92.23      29.6
+  Skeleton-GCN          2016        Graph Existing    94.78   1.80   92.71   94.56   92.46      90.7
+
+  ★ = Best overall accuracy
+  † = Novel architecture (added for extended novelty)
+
+====================================================================================================
+  TABLE 3: ENERGY-AWARE EFFICIENCY ANALYSIS
+  (Inspired by: Energy-Aware GPU Skinning — Shalaby et al.)
+====================================================================================================
+
+  Model                  Params     Size     FLOPs   Lat(ms)      FPS   Rel.Spd      EES             HW
+  ──────────────────── ──────── ──────── ───────── ───────── ──────── ───────── ──────── ──────────────
+  Skeleton-GCN            0.03M    0.1MB    0.001G     0.10ms  10469.5     24.1×  4590.81     CPU-Native
+  LSTM                    0.94M    3.6MB    0.001G     0.35ms   2856.2     73.9×   910.04     CPU-Native
+  Attn-LSTM               0.94M    3.6MB    0.001G     0.36ms   2760.0     64.7×   903.72     CPU-Native
+  BiLSTM                  2.44M    9.3MB    0.003G     0.66ms   1520.1     34.8×   382.55     CPU-Native
+  MobileNetV2             2.55M    9.9MB    0.327G     8.75ms    114.3      1.0×    31.93   GPU-Required
+  MobileNetV3-Large       5.48M   21.1MB    0.226G     9.20ms    108.7      0.1×    27.50   GPU-Required
+  EfficientNet-B0         4.34M   16.7MB    0.414G    11.57ms     86.4      0.7×    22.48   GPU-Required
+  ViT-Tiny                5.53M   21.1MB    1.075G    10.54ms     94.9      0.3×    15.67   GPU-Required
+  ConvNeXt-Tiny          27.83M  106.2MB    4.455G    31.46ms     31.8      0.1×     3.97   GPU-Required
+
+  GPU-CLASS (5 models): FLOPs range = 0.226–4.455 GFLOPs
+  CPU-NATIVE (4 models): FLOPs range = 0.0008–0.0025 GFLOPs
+  FLOPs ratio GPU/CPU = 1019× (CPU-native architectures are dramatically more efficient)
+
+====================================================================================================
+  TABLE 4: PER-CLASS RECALL ANALYSIS
+  (Identifies MediaPipe Ceiling on occluded motion classes)
+====================================================================================================
+
+  Model                  NoObj    Unkn     Ext    Flex     Abd    HExt     Add           HW
+  ──────────────────── ─────── ─────── ─────── ─────── ─────── ─────── ─────── ────────────
+  ConvNeXt-Tiny           98.1    81.2    98.4    97.1    98.1    98.4   100.0 GPU-Required
+  MobileNetV2            100.0    75.0    98.4    97.8    96.2    98.4   100.0 GPU-Required
+  ViT-Tiny                98.1    87.5    97.9    96.4    97.5    96.8   100.0 GPU-Required
+  MobileNetV3-Large      100.0    81.2    97.9    96.4    96.8    98.4    97.7 GPU-Required
+  EfficientNet-B0        100.0    75.0    97.6    97.1    96.8    98.4   100.0 GPU-Required
+  Attn-LSTM              100.0    75.0    97.6    90.6    93.7    96.8   100.0   CPU-Native
+  BiLSTM                 100.0    75.0    97.6    89.9    93.7    98.4   100.0   CPU-Native
+  LSTM                   100.0    68.8    97.9    89.9    93.7    98.4    97.7   CPU-Native
+  Skeleton-GCN           100.0    75.0    98.7    86.2    94.3    95.2    97.7   CPU-Native
+
+  MEDIAPIPE CEILING ANALYSIS:
+  Class 'Flex' (prone to landmark occlusion):
+    GPU-class mean recall:  97.0%
+    CPU-native mean recall: 89.1%
+    Gap: 7.8pp ← Confirms MediaPipe upstream bottleneck
+
+  Class 'Unkn' (ambiguous pose):
+    ConvNeXt-Tiny       : 81.2%
+    MobileNetV2         : 75.0%
+    ViT-Tiny            : 87.5% ★
+    MobileNetV3-Large   : 81.2%
+    EfficientNet-B0     : 75.0%
+    Attn-LSTM           : 75.0%
+    BiLSTM              : 75.0%
+    LSTM                : 68.8%
+    Skeleton-GCN        : 75.0%
+
+====================================================================================================
+  TABLE 5: DEPLOYMENT RECOMMENDATION MATRIX (Extended)
+  (Energy-aware deployment guidance for SE Asian clinical settings)
+====================================================================================================
+
+  Use Case                       Model                    Acc%   ±Std   S5CV-t   Rel.Spd    FLOPs             HW
+  ────────────────────────────── ──────────────────── ──────── ────── ──────── ───────── ──────── ──────────────
+  Clinical (max accuracy)        MobileNetV2             97.22   1.12   2187.7      1.0×   0.327G   GPU-Required
+  Clinical (alternative)         EfficientNet-B0         96.87   1.49   3057.7      0.7×   0.414G   GPU-Required
+  Clinical (ambiguous pose)      ViT-Tiny                97.22   1.18   6335.7      0.3×   1.075G   GPU-Required
+  Edge CPU deployment            BiLSTM                  95.13   2.10     62.9     34.8×   0.003G     CPU-Native
+  Real-time edge (optimal)       Attn-LSTM               95.13   1.67     33.8     64.7×   0.001G     CPU-Native
+  Mobile / IoT / ARM             LSTM                    94.90   1.57     29.6     73.9×   0.001G     CPU-Native
+  Explainability required        Skeleton-GCN            94.78   1.80     90.7     24.1×   0.001G     CPU-Native
+  Clinical (highest stability)   ConvNeXt-Tiny           97.56   0.68  26105.0      0.1×   4.455G   GPU-Required †
+  Clinical (efficient GPU)       MobileNetV3-Large       96.98   0.67  18597.6      0.1×   0.226G   GPU-Required †
+
+  † = Novel architecture (new contribution vs Shalaby et al.)
+
+====================================================================================================
+  NOVELTY ACHIEVEMENT SUMMARY
+  vs Shalaby et al. (Pose Estimation + GPU Skinning)
+====================================================================================================
+
+  NOVELTY 1: SUPERIORITY OF MODERN CNN (ConvNeXt-Tiny 2022)
+  ─────────────────────────────────────────────────────────
+  ConvNeXt-Tiny accuracy:  97.56% ± 0.68%
+  MobileNetV2 accuracy:    97.22% ± 1.12%
+  Improvement in accuracy: +0.34pp
+  Improvement in stability: std reduced by 0.44pp
+  → ConvNeXt-Tiny (2022) outperforms all models in BOTH accuracy AND stability
+  → This is 3 years newer than CNN architectures in Shalaby et al.
+
+  NOVELTY 2: ENERGY-AWARE INFERENCE FRAMEWORK
+  ─────────────────────────────────────────────────────────
+  Inspired by: GPU Skinning energy-awareness (Shalaby Art.3)
+  Adapted to:  Clinical AI inference for rehabilitation
+  New metrics: FLOPs, Model Size, EES, CDS, Inference Latency
+
+  FLOPs comparison (GPU-class vs CPU-native):
+    GPU-class  (CNN/ViT): 1.299 GFLOPs avg
+    CPU-native (Skel):    0.0013 GFLOPs avg
+    Ratio: 1019× more compute for GPU models
+
+  NOVELTY 3: MEDIAPIPE CEILING CONFIRMED
+  ─────────────────────────────────────────────────────────
+  Flex recall - GPU models:  97.0%
+  Flex recall - CPU models:  89.1%
+  Gap: 7.8pp
+  → Bottleneck is MediaPipe upstream, not model architecture
+
+  NOVELTY 4: ATTN-LSTM OPTIMAL FOR EDGE DEPLOYMENT
+  ─────────────────────────────────────────────────────────
+  Attn-LSTM: 95.13% accuracy at 64.7× faster than MobileNetV2
+  FLOPs: 0.0009 GFLOPs vs MobileNetV2's 0.327 GFLOPs
+  → 363× fewer FLOPs for CPU-native deployment
+
+
+  ✓ Master chart saved → ./output\master_comparison_chart.png
+  ✓ LaTeX table saved → ./output\latex_master_table.tex
+
+  LaTeX Table Preview:
+  \begin{table*}[htbp]
+  \centering
+  \caption{Comprehensive comparison of all evaluated architectures under the RE-Bench protocol (S5-CV, seed=42). $\dagger$ = novel architecture (2021--2022). $\star$ = best in category. EES = Energy Efficiency Score (proposed metric).}
+  \label{tab:master_comparison}
+  \begin{tabular}{llcccccccc}
+  \hline
+  \textbf{Model} & \textbf{Paradigm} & \textbf{Year} & \textbf{Acc (\%)} & \textbf{$\pm$Std} & \textbf{F1 (\%)} & \textbf{FLOPs (G)} & \textbf{Size (MB)} & \textbf{EES} & \textbf{HW} \\
+  \hline
+  \textbf{ConvNeXt-Tiny$\dagger$} & CNN & 2022 & \textbf{97.56$\star$} & 0.68 & 96.51 & 4.455 & 106.2 & 4.0 & GPU \\
+  \textbf{MobileNetV2} & CNN & 2018 & \textbf{97.22} & 1.12 & 96.00 & 0.327 & 9.9 & 31.9 & GPU \\
+  \hline
+  \textbf{ViT-Tiny} & Transformer & 2021 & \textbf{97.22} & 1.18 & 96.73 & 1.075 & 21.1 & 15.7 & GPU \\
+  \hline
+  MobileNetV3-Large$\dagger$ & CNN & 2019 & 96.98 & 0.67 & 96.22 & 0.226 & 21.1 & 27.5 & GPU \\
+  EfficientNet-B0 & CNN & 2019 & 96.87 & 1.49 & 95.54 & 0.414 & 16.7 & 22.5 & GPU \\
+  \hline
+  Attn-LSTM & Sequential & 2015 & 95.13 & 1.67 & 92.87 & 0.001 & 3.6 & 903.7 & CPU \\
+  BiLSTM & Sequential & 2013 & 95.13 & 2.10 & 93.15 & 0.003 & 9.3 & 382.6 & CPU \\
+  LSTM & Sequential & 2014 & 94.90 & 1.57 & 92.05 & 0.001 & 3.6 & 910.0 & CPU \\
+  \hline
+  Skeleton-GCN & Graph & 2016 & 94.78 & 1.80 & 92.71 & 0.001 & 0.1 & 4590.8 & CPU \\
+  \hline
+  \end{tabular}
+  \end{table*}
+
+====================================================================================================
+  COMPLETE. Files generated:
+  → ./output/master_final_table.csv
+  → ./output/master_comparison_chart.png
+  → ./output/latex_master_table.tex
+====================================================================================================
+
+
+

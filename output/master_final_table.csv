@@ -1,0 +1,10 @@
+Model,Generation,Paradigm,Category,Accuracy_%,Std_%,F1_Macro_%,Precision_%,Recall_%,S5CV_Time_s,Params_M,Model_Size_MB,FLOPs_G,Latency_ms,FPS_CPU,Relative_Speed,EES,Hardware_Class,Deployment_Use,Recall_NoObj,Recall_Unkn,Recall_Ext,Recall_Flex,Recall_Abd,Recall_HExt,Recall_Add
+MobileNetV2,2018,CNN,Existing,97.22,1.12,96.0,97.74,95.12,2187.7,2.55,9.87,0.327,8.75,114.3,1.0,31.93,GPU-Required,Clinical (max accuracy),100.0,75.0,98.4,97.8,96.2,98.4,100.0
+EfficientNet-B0,2019,CNN,Existing,96.87,1.49,95.54,96.99,94.99,3057.7,4.34,16.71,0.414,11.57,86.4,0.7,22.48,GPU-Required,Clinical (alternative),100.0,75.0,97.6,97.1,96.8,98.4,100.0
+ViT-Tiny,2021,Transformer,Existing,97.22,1.18,96.73,97.43,96.44,6335.7,5.53,21.08,1.075,10.54,94.9,0.3,15.67,GPU-Required,Clinical (ambiguous pose),98.1,87.5,97.9,96.4,97.5,96.8,100.0
+BiLSTM,2013,Sequential,Existing,95.13,2.1,93.15,94.45,93.46,62.9,2.443,9.32,0.0025,0.66,1520.1,34.8,382.55,CPU-Native,Edge CPU deployment,100.0,75.0,97.6,89.9,93.7,98.4,100.0
+Attn-LSTM,2015,Sequential,Existing,95.13,1.67,92.87,93.57,93.33,33.8,0.943,3.6,0.0009,0.36,2760.0,64.7,903.72,CPU-Native,Real-time edge (optimal),100.0,75.0,97.6,90.6,93.7,96.8,100.0
+LSTM,2014,Sequential,Existing,94.9,1.57,92.05,93.64,92.23,29.6,0.943,3.6,0.0009,0.35,2856.2,73.9,910.04,CPU-Native,Mobile / IoT / ARM,100.0,68.8,97.9,89.9,93.7,98.4,97.7
+Skeleton-GCN,2016,Graph,Existing,94.78,1.8,92.71,94.56,92.46,90.7,0.03,0.11,0.0008,0.1,10469.5,24.1,4590.81,CPU-Native,Explainability required,100.0,75.0,98.7,86.2,94.3,95.2,97.7
+ConvNeXt-Tiny,2022,CNN,Novel,97.56,0.68,96.51,97.65,95.91,26105.0,27.83,106.15,4.455,31.46,31.8,0.1,3.97,GPU-Required,Clinical (highest stability),98.1,81.2,98.4,97.1,98.1,98.4,100.0
+MobileNetV3-Large,2019,CNN,Novel,96.98,0.67,96.22,97.75,95.49,18597.6,5.48,21.1,0.226,9.2,108.7,0.1,27.5,GPU-Required,Clinical (efficient GPU),100.0,81.2,97.9,96.4,96.8,98.4,97.7
